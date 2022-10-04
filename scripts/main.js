@@ -121,7 +121,7 @@ const quoteList = [
     ]
 ]
 
-const quoteImagesLinks = [
+const quotersImagesLinks = [
     {   
         name: "Oscar Wilde",
         imgLink: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Oscar_Wilde_3g07095u-adjust.jpg/330px-Oscar_Wilde_3g07095u-adjust.jpg"
@@ -227,11 +227,24 @@ const quoteImagesLinks = [
 
 const getRandomQuote = () => quoteList[Math.floor(Math.random()*(quoteList.length-1))]
 
+const getQuoterImage = name => {
+    let i=0
+
+    while(1){
+        if(quotersImagesLinks[i].name === name)
+            return quotersImagesLinks[i].imgLink
+        else
+            i++ 
+    }
+}
+
 const clickQuoteHandler = () => {
     let randomQuote = getRandomQuote()
+    let quoterImg = `<img id="quoterImg" src="${getQuoterImage(randomQuote[1])}" />`
     let quoteElem = `<div id="quoteText">${randomQuote[0]}</div>`
-    let quoterElem = `<div id="quoter"><em>${randomQuote[1]}</em></div>`
-    document.querySelector('#quote').innerHTML = quoteElem + quoterElem
+    let quoterElem = `<div id="quoter">-<em>${randomQuote[1]}</em></div>`
+    let quoteInfo = `<div id="quoteInfo">${quoteElem}${quoterElem}</div>`
+    document.querySelector('#quote').innerHTML = quoterImg + quoteInfo
 }
 
 document.getElementById('show-quote-btn').addEventListener('click', clickQuoteHandler)

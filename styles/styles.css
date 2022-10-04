@@ -6,9 +6,28 @@ h1{
 }
 
 #quote{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     font-family: 'Roboto';
     font-weight: 400;
-    margin: 10px 0 20px 10px
+    margin: 10px 0 20px 0px
+}
+
+#quoteInfo{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+
+#quoter{
+    margin-top: 10px;
+}
+
+#quoterImg{
+    width: 150px;
+    height: 200px;
+    margin-top: 10px;
 }
 
 button{
